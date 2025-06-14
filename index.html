@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>마음퍼즐</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="screen show" id="start-screen">
+    <h1>🧩 마음퍼즐</h1>
+    <button onclick="nextScreen('place-screen')">게임 시작</button>
+  </div>
+
+  <div class="screen" id="place-screen">
+    <h2>어디에 있나요?</h2>
+    <div class="option-list">
+      <div class="option" onclick="selectOption('place', '병원')">병원</div>
+      <div class="option" onclick="selectOption('place', '버스')">버스</div>
+      <div class="option" onclick="selectOption('place', '비행기')">비행기</div>
+      <div class="option" onclick="selectOption('place', '카페')">카페</div>
+    </div>
+  </div>
+
+  <div class="screen" id="situation-screen">
+    <h2>어떤 상황인가요?</h2>
+    <div class="option-list">
+      <div class="option" onclick="selectOption('situation', '기다리는 중')">기다리는 중</div>
+      <div class="option" onclick="selectOption('situation', '휴식 중')">휴식 중</div>
+      <div class="option" onclick="selectOption('situation', '출근 중')">출근 중</div>
+    </div>
+  </div>
+
+  <div class="screen" id="feeling-screen">
+    <h2>지금 기분은 어때요?</h2>
+    <div class="option-list">
+      <div class="option" onclick="selectOption('feeling', '지침')">지침</div>
+      <div class="option" onclick="selectOption('feeling', '설렘')">설렘</div>
+      <div class="option" onclick="selectOption('feeling', '우울')">우울</div>
+    </div>
+  </div>
+
+  <div class="screen" id="style-screen">
+    <h2>마음에 드는 그림을 골라보세요</h2>
+    <div class="option-list">
+      <img src="./images/watercolor.jpg" class="thumbnail" onclick="selectOption('style', '수채화')"/>
+      <img src="./images/illustration.jpg" class="thumbnail" onclick="selectOption('style', '일러스트')"/>
+    </div>
+  </div>
+
+  <div class="screen" id="level-screen">
+    <h2>난이도를 선택하세요</h2>
+    <div class="option-list">
+      <div class="option" onclick="startGame('easy')">쉬움</div>
+      <div class="option" onclick="startGame('hard')">어려움</div>
+    </div>
+  </div>
+
+  <div class="screen" id="game-screen">
+    <button id="close-btn" onclick="showPopup()">닫기</button>
+    <div id="game-board"></div>
+  </div>
+
+  <div id="popup">
+    <p>게임을 계속할까요?</p>
+    <button onclick="continueGame()">계속하기</button>
+    <button onclick="goToScreen('style-screen')">다시 선택하기</button>
+    <button onclick="goToScreen('start-screen')">끝내기</button>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
